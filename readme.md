@@ -6,6 +6,8 @@ A [stathat](http://www.stathat.com/) sender for [go-metrics](http://github.com/r
 Usage
 -----
 
+You will need to get an EZ Key from your [settings page](http://www.stathat.com/settings).
+
 Create and update metrics on stathat:
 
 ```go
@@ -17,7 +19,7 @@ import (
 // use this registry as you would normally using go-metrics
 reg := metrics.NewRegistry()
 
-// every 60 seconds, all metrics that have been added to the provied registry to stathat
+// every 60 seconds, log all metrics that have been added to the provied registry to stathat
 go metricsstathat.StatHat(reg, 60, "MYEZKEY")
 ```
 
