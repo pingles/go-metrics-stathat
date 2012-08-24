@@ -17,7 +17,7 @@ import (
 // use this registry as you would normally using go-metrics
 reg := metrics.NewRegistry()
 
-// every 60 seconds, log to your stathat account using MYEZKEY (replace with yours)
+// every 60 seconds, all metrics that have been added to the provied registry to stathat
 go metricsstathat.StatHat(reg, 60, "MYEZKEY")
 ```
 
