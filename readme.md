@@ -27,5 +27,5 @@ Installation
 ------------
 
 ```sh
-go install github.com/samuraisam/go-metrics-stathat
+go get github.com/samuraisam/go-metrics-stathat
 ```
