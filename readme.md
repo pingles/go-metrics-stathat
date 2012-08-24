@@ -26,6 +26,9 @@ go metricsstathat.StatHat(reg, 60, "MYEZKEY")
 Installation
 ------------
 
+Uses [github.com/stathat/stathatgo](http://github.com/stathat/stathatgo) so you'll need to install it.
+
 ```sh
+go get github.com/stathat/stathatgo
 go get github.com/samuraisam/go-metrics-stathat
 ```
