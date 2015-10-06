@@ -16,7 +16,7 @@ func StatHat(r metrics.Registry, interval int, key string) {
 			}
 			switch m := i.(type) {
 			case metrics.Counter:
-				stathat.PostEZCount(n("count"), key, int(m.Count()))
+				stathat.PostEZValue(n("count"), key, int(m.Count()))
 			case metrics.Gauge:
 				stathat.PostEZValue(n("value"), key, float64(m.Value()))
 			case metrics.Healthcheck:
@@ -27,7 +27,7 @@ func StatHat(r metrics.Registry, interval int, key string) {
 				stathat.PostEZValue(n("healthy"), key, val)
 			case metrics.Histogram:
 				ps := m.Percentiles([]float64{0.5, 0.75, 0.95, 0.99, 0.999})
-				stathat.PostEZCount(n("count"), key, int(m.Count()))
+				stathat.PostEZValue(n("count"), key, int(m.Count()))
 				stathat.PostEZValue(n("min"), key, float64(m.Min()))
 				stathat.PostEZValue(n("max"), key, float64(m.Max()))
 				stathat.PostEZValue(n("mean"), key, m.Mean())
@@ -38,14 +38,14 @@ func StatHat(r metrics.Registry, interval int, key string) {
 				stathat.PostEZValue(n("99"), key, ps[3])
 				stathat.PostEZValue(n("999"), key, ps[4])
 			case metrics.Meter:
-				stathat.PostEZCount(n("count"), key, int(m.Count()))
+				stathat.PostEZValue(n("count"), key, int(m.Count()))
 				stathat.PostEZValue(n("1minRate"), key, m.Rate1())
 				stathat.PostEZValue(n("5minRate"), key, m.Rate5())
 				stathat.PostEZValue(n("15minRate"), key, m.Rate15())
 				stathat.PostEZValue(n("meanRate"), key, m.RateMean())
 			case metrics.Timer:
 				ps := m.Percentiles([]float64{0.5, 0.75, 0.95, 0.99, 0.999})
-				stathat.PostEZCount(n("count"), key, int(m.Count()))
+				stathat.PostEZValue(n("count"), key, int(m.Count()))
 				stathat.PostEZValue(n("min"), key, float64(m.Min()))
 				stathat.PostEZValue(n("max"), key, float64(m.Max()))
 				stathat.PostEZValue(n("mean"), key, m.Mean())
